@@ -3,7 +3,6 @@
 """
 from math import sin, cos, sqrt, atan2, radians
 from os import listdir
-from gzip import GzipFile
 
 import pandas as pd
 from fetchwx import mwnet_dict
