@@ -121,5 +121,8 @@ def process_stn(datadir, stnid, clean=True):
     skiprows = [0,1,2,3,4,5,7]
     df = pd.read_csv(filepath, skiprows=skiprows, index_col=[1], 
                      parse_dates=[1], compression='gzip')
+    if 'heat_index_set_1d' in df.columns:
+        df = df.drop('heat_index_set_1d', axis=1)
+    df = df.convert_objects(convert_numeric=True)
     return df
 
