@@ -89,7 +89,8 @@ ENV/
 .ropeproject
 
 # Data
-.csv
+*.csv
+*.gz
 
 # config
 synoptic_config.yml
