@@ -1,18 +1,19 @@
-
-import datetime
-from gzip import GzipFile
-import json
-import pandas as pd
+"""
+@author: ABerner
+"""
 from os import listdir
 from os.path import isfile
 import re
+from gzip import GzipFile
+import json
+
+import pandas as pd
 import requests
-import xmltodict
-import time
 import yaml
 
-from common import GzipJsonFile
-
+mwnet_dict = {'SNOTEL': 25,
+              'NWAC': 37,
+              'BTAVAL': 48}
 
 with open('synoptic_config.yml', 'r') as ymlfile:
     cfg = yaml.load(ymlfile)
