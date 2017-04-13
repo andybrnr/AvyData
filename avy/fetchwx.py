@@ -14,7 +14,7 @@ import yaml
 from common import GzipJsonFile
 
 
-with open('./config.yml', 'r') as ymlfile:
+with open('synoptic_config.yml', 'r') as ymlfile:
     cfg = yaml.load(ymlfile)
 
 api_token = cfg['SynopticAPI']['token']
