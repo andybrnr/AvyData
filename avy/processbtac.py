@@ -80,7 +80,6 @@ def process_btac_nowcast(infile, outfile, cutoff=15000):
             else:
                 print("hazard graphic parsing not yet implemented")
                 continue
-            print(data_row)
             df = df.append(pd.DataFrame(data_row, index=[df_idx]))
             df_idx += 1
     df['date'] = pd.to_datetime(df['date'])
@@ -98,7 +97,7 @@ def process_btac_nowcast(infile, outfile, cutoff=15000):
     df_pm = df_pm.set_index('date')
     df = pd.concat([df_am,df_pm])
     df = df.sort_index()
-    df.to_csv(outfile)
+    df.to_csv(outfile, compression='gzip')
 
 
 def process_btac_events(infile, outfile):
@@ -139,4 +138,4 @@ def process_btac_events(infile, outfile):
              'slope_angle', 'destructive_size','relative_size', 'depth',
              'avy_trigger', 'fldType', 'fatality', 'observer', 'affiliation', 
              'notes']]
-    df.to_csv(outfile)
+    df.to_csv(outfile, compression='gzip')
